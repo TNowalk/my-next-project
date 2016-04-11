@@ -13,4 +13,9 @@ var CommentSchema = new mongoose.Schema({
   creator: String
 });
 
+CommentSchema.methods.upvote = function(cb) {
+  this.upvotes++;
+  this.save(cb);
+};
+
 module.exports = mongoose.model('Comment', CommentSchema);

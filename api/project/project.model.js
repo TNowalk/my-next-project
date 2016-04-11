@@ -14,4 +14,9 @@ var ProjectSchema = new mongoose.Schema({
   creator: String
 });
 
+ProjectSchema.methods.upvote = function(cb) {
+  this.upvotes++;
+  this.save(cb);
+};
+
 module.exports = mongoose.model('Project', ProjectSchema);
